@@ -7,8 +7,8 @@ In this project I use Jasmine for unit testing. There are 4 test suites in feedr
 - Initial Entries test
 - New Feed Selection test
 
-## Steps 
+## Steps to run the test
 
 - Download or clone feedreader project
 - Navigate to index.html
-- Open index.html to see the result of the test
+- Open index.html in your browser to see the result of the test 
