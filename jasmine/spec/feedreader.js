@@ -49,30 +49,31 @@ $(function () {
                 done();
             });
         });
-        it('There is more than 0 entries', function(){
-           expect($('.entry .feed')).toBeDefined();
+        it('There is more than 0 entries', function () {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
     });
 
-     // 4 - New Feed Selection test suite
+    // 4 - New Feed Selection test suite
     describe('New Feed Selection', function () {
+
+        let oldFeed;
+        let newFeed;
+
         beforeEach(function (done) {
-            $('.feed').empty();
             loadFeed(0, function () {
-                entriesStart = $('.feed').find(allFeeds.url);
-                done();
-            });
+                oldFeed = $('.feed').html()
+                loadFeed(1, function () {
+                    newFeed =  $('.feed').html()
+                    done();
+                })
+            })
 
-            loadFeed(1, function () {
-                entriesEnd = $('.feed').find(allFeeds.url);
-                done();
-            });
-
-           it('New feed is different to old one', function(){
-               expect(entriesStart).not.toBe(entriesEnd);
-           });
+        it('New feed is different to old one', function () {
+            expect(oldFeed).not.toEqual(newFeed);
         });
     });
+});
 
 }());
